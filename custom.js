@@ -64,3 +64,78 @@ createOrder(cart)
   .then(function (OrderSumm) {
     return updateWallet(OrderSumm);
   });
+
+  // promise
+// .then(function(orderId){
+//   console.log(orderId)
+// })
+// .catch(function(err){
+//   console.log(err.message)
+// })
+
+// function validateOrder(){
+//   console.log('vali')
+//   return false
+// }
+
+// function createOrder(cart){
+
+//   const pr = new Promise(function(resolve, reject){
+
+//     if(!validateOrder()){
+//       const err = new Error('invalid order')
+//       reject(err)
+//     }
+
+//     const orderId = 23
+//     if(orderId){
+//      setTimeout(function(){
+//       resolve(orderId)
+//      },5000)
+//     }
+
+//   })
+//   return pr
+// }
+
+const cart = ["shoes", "shirt", "belt"];
+
+const createOrder = (cart) => {
+  return;
+};
+
+createOrder
+.then(function (orderId) {
+  proceedToPayment(orderId)
+})
+.then(function(receiptId){
+  showOrderSummary(receiptId)
+})
+
+function createOrder(cart) {
+  const pr = new Promise(function (resolve, reject) {
+    if (false) {
+      const err = new Error("invalid");
+      reject(err);
+    }
+
+    if (true) {
+      resolve("orderId : 23");
+    }
+  });
+
+  return pr;
+}
+
+function proceedToPayment(orderId){
+
+  const pr = new Promise(function(resolve, reject){
+    if(true){
+      reject()
+    }
+    if(true){
+      resolve()
+    }
+  })
+  return pr
+}
