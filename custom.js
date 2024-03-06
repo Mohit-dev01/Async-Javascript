@@ -51,21 +51,20 @@
 //     console.log(data);
 // })
 
-
 // Promise Chaining
-const cart = ["shoes", "shirts"];
-createOrder(cart)
-  .then(function (orderId) {
-    return proceedtoPayment(orderId);
-  })
-  .then(function (paymentInfo) {
-    return showOrderSummary(paymentInfo);
-  })
-  .then(function (OrderSumm) {
-    return updateWallet(OrderSumm);
-  });
+// const cart = ["shoes", "shirts"];
+// createOrder(cart)
+//   .then(function (orderId) {
+//     return proceedtoPayment(orderId);
+//   })
+//   .then(function (paymentInfo) {
+//     return showOrderSummary(paymentInfo);
+//   })
+//   .then(function (OrderSumm) {
+//     return updateWallet(OrderSumm);
+//   });
 
-  // promise
+// promise
 // .then(function(orderId){
 //   console.log(orderId)
 // })
@@ -98,45 +97,99 @@ createOrder(cart)
 //   return pr
 // }
 
-const cart = ["shoes", "shirt", "belt"];
+// const cart = ["shoes", "shirt", "belt"];
 
-const createOrder = (cart) => {
-  return;
-};
+// const createOrder = (cart) => {
+//   return;
+// };
 
-createOrder
-.then(function (orderId) {
-  proceedToPayment(orderId)
-})
-.then(function(receiptId){
-  showOrderSummary(receiptId)
-})
+// createOrder
+// .then(function (orderId) {
+//   proceedToPayment(orderId)
+// })
+// .then(function(receiptId){
+//   showOrderSummary(receiptId)
+// })
 
-function createOrder(cart) {
-  const pr = new Promise(function (resolve, reject) {
-    if (false) {
-      const err = new Error("invalid");
-      reject(err);
-    }
+// function createOrder(cart) {
+//   const pr = new Promise(function (resolve, reject) {
+//     if (false) {
+//       const err = new Error("invalid");
+//       reject(err);
+//     }
 
-    if (true) {
-      resolve("orderId : 23");
-    }
+//     if (true) {
+//       resolve("orderId : 23");
+//     }
+//   });
+
+//   return pr;
+// }
+
+// function proceedToPayment(orderId){
+
+//   const pr = new Promise(function(resolve, reject){
+//     if(true){
+//       reject()
+//     }
+//     if(true){
+//       resolve()
+//     }
+//   })
+//   return pr
+// }
+
+// Promise Apis
+
+const pr1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("pr1 resolve");
+  }, 3000);
+});
+
+const pr2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve("pr2 resolve")
+    reject("pr2 reject");
+  }, 1000);
+});
+
+const pr3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("pr3 resolve");
+  }, 2000);
+});
+
+Promise.all([pr1, pr2, pr3])
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.error(err);
   });
 
-  return pr;
-}
-
-function proceedToPayment(orderId){
-
-  const pr = new Promise(function(resolve, reject){
-    if(true){
-      reject()
-    }
-    if(true){
-      resolve()
-    }
+Promise.allSettled([pr1, pr2, pr3])
+  .then((res) => {
+    console.log(res);
   })
-  return pr
-}
-kjj
+  .catch((err) => {
+    console.error(err);
+  });
+
+  Promise.race([pr1, pr2, pr3])
+  .then( (res) => {
+console.log(res)
+  })
+  .catch( (err) => {
+    console.error(err)
+  })
+
+  Promise.any([pr1, pr2, pr3])
+  .then( (res) => {
+    console.log(res)
+      })
+      .catch( (err) => {
+        console.error(err)
+        // to get the aggregate errors in console
+        console.error(err.errors)
+      })
