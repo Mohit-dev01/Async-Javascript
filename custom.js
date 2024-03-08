@@ -206,16 +206,58 @@
 // })
 
 const p = new Promise( (resolve,reject) => {
-resolve("promise resolved")
+setTimeout( () => {
+    resolve("promise resolved")
+}, 3000)
 })
 
-async function solvePromise() {
- const val =  await p
- console.log(val)
-}
+// async function solvePromise() {
+//  const val =  await p
+//  console.log(val)
+// }
 
-solvePromise()
+// solvePromise()
 
 // p.then((res) => {
 //   console.log(res)
 // })
+
+// function getData () {
+//     p
+// .then( (res) => {
+//     console.log(res)
+//     console.log("ruiwoantenous")
+// })
+// }
+
+// getData()
+
+
+// async function handlePromise() {
+//  const value =   await p
+//  console.log(value)
+//  console.log("uiow")
+// }
+// handlePromise()
+
+const p1 = new Promise( (resolve,reject) => {
+setTimeout( () => {
+    resolve("p! resolved")
+}, 6000)
+})
+const p2 = new Promise( (resolve, reject) => {
+    setTimeout(() => {
+        resolve("p2 reisolved")
+    }, 3000);
+})
+
+async function solvePromise ()  {
+
+    const val1 = await p1
+    console.log(val1)
+
+    const val2 = await p2
+    console.log(val2)
+
+}
+solvePromise()
