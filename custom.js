@@ -141,55 +141,81 @@
 
 // Promise Apis
 
-const pr1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("pr1 resolve");
-  }, 3000);
-});
+// const pr1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("pr1 resolve");
+//   }, 3000);
+// });
 
-const pr2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    // resolve("pr2 resolve")
-    reject("pr2 reject");
-  }, 1000);
-});
+// const pr2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     // resolve("pr2 resolve")
+//     reject("pr2 reject");
+//   }, 1000);
+// });
 
-const pr3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("pr3 resolve");
-  }, 2000);
-});
+// const pr3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("pr3 resolve");
+//   }, 2000);
+// });
 
-Promise.all([pr1, pr2, pr3])
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// Promise.all([pr1, pr2, pr3])
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
-Promise.allSettled([pr1, pr2, pr3])
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// Promise.allSettled([pr1, pr2, pr3])
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
-  Promise.race([pr1, pr2, pr3])
-  .then( (res) => {
-console.log(res)
-  })
-  .catch( (err) => {
-    console.error(err)
-  })
+//   Promise.race([pr1, pr2, pr3])
+//   .then( (res) => {
+// console.log(res)
+//   })
+//   .catch( (err) => {
+//     console.error(err)
+//   })
 
-  Promise.any([pr1, pr2, pr3])
-  .then( (res) => {
-    console.log(res)
-      })
-      .catch( (err) => {
-        console.error(err)
-        // to get the aggregate errors in console
-        console.error(err.errors)
-      })
+//   Promise.any([pr1, pr2, pr3])
+//   .then( (res) => {
+//     console.log(res)
+//       })
+//       .catch( (err) => {
+//         console.error(err)
+//         // to get the aggregate errors in console
+//         console.error(err.errors)
+//       })
+
+
+// async function getData () {
+//   return "beauti"
+// }
+// const data = getData()
+// console.log(data)
+// data
+// .then( res => {
+// console.log(res)
+// })
+
+const p = new Promise( (resolve,reject) => {
+resolve("promise resolved")
+})
+
+async function solvePromise() {
+ const val =  await p
+ console.log(val)
+}
+
+solvePromise()
+
+// p.then((res) => {
+//   console.log(res)
+// })
